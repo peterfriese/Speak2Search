@@ -1,0 +1,16 @@
+{
+	"name": "Speak to Search",
+	"version": "1.0",
+	"description": "Instead of typing, just use your computer's microphone to speak what you're looking for.",
+	"icons": { "16": "icon_16.png",
+	           "48": "icon_48.png",
+	          "128": "icon_128.png" },	
+	"run_at": "document_start",
+	"background_page": "background.html",
+	"content_scripts": [
+		{
+			"matches": ["http://*/*", "https://*/*"],
+			"js": ["jquery-1.6.1.min.js", "spk2srch.js"]
+		}
+	]
+}
