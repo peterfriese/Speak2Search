@@ -6,8 +6,9 @@ $(document).ready(function() {
 	function enableSpeech(inputElement) {
 		$(inputElement).attr('x-webkit-speech', '');
 		$(inputElement).bind('webkitspeechchange', function(field) {
-			var fieldname = $(field.target).attr('name');
-			if (fieldName == 'q' || fieldName == 'search') {
+			var fieldName = $(field.target).attr('name');
+			var fieldId = $(field.target).attr('id');
+			if ((fieldName == 'q') || (fieldName.indexOf('search') >= 0) || (fieldId.indexOf('search') >= 0) ) {
 				field.target.form.submit();
 			}
 		})		
