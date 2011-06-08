@@ -16,7 +16,7 @@ $(document).ready(function() {
 	
 	// augment all text input fields and search fields with speech input capabilities:
 	$('input').each(function(index, element) {
-		var type = element.type;
+		var type = element.type;		
 		if (type == 'text' || type == 'search') {
 			enableSpeech(element);
 		}
@@ -31,7 +31,12 @@ $(document).ready(function() {
 	if (window.location.hostname.indexOf('xing') >= 0) {
 		$('body').attr('lang', 'de');
 		$('html').attr('lang', 'de');
-		$('.usearchform button').css('right', '-16px');		
+		$('.usearchform button').css('right', '-40px');		
+	}
+	
+	// Twitter.com
+	if (window.location.hostname.indexOf('twitter') >= 0) {
+		$('span.glass').css('right', '10px');
 	}
 	
 });
