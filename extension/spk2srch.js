@@ -1,5 +1,9 @@
 $(document).ready(function() {
 	
+	function track(event) {
+		chrome.extension.getBackgroundPage()._gaq.push(['_trackEvent', 'speech', event]);
+	}
+	
 	/**
 	 * Augment the given field with speech input capabilities:
 	 */
@@ -10,6 +14,10 @@ $(document).ready(function() {
 			var fieldId = $(field.target).attr('id');
 			if ((fieldName == 'q') || (fieldName.indexOf('search') >= 0) || (fieldId.indexOf('search') >= 0) ) {
 				field.target.form.submit();
+				track('recognition in search field');
+			}
+			else {
+				track('recognition in regular field');
 			}
 		})		
 	}
